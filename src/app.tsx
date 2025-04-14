@@ -23,11 +23,11 @@ export function App() {
   };
 
   const handleEventUpdate = (updatedEvent: CalendarEvent) => {
-    setEvents(events.map((event) => (event.id === updatedEvent.id ? updatedEvent : event)));
+    setEvents((events) => events.map((e) => (e.id === updatedEvent.id ? updatedEvent : e)));
   };
 
   const handleEventDelete = (eventId: string) => {
-    setEvents(events.filter((event) => event.id !== eventId));
+    setEvents((events) => events.filter((event) => event.id !== eventId));
   };
 
   return (

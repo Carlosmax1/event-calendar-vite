@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { RiCalendarCheckLine } from '@remixicon/react';
 import { addDays, addMonths, addWeeks, endOfWeek, format, isSameMonth, startOfWeek, subMonths, subWeeks } from 'date-fns';
-import { ptBR, sr } from 'date-fns/locale';
+import { ptBR } from 'date-fns/locale';
 import { ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon, PlusIcon } from 'lucide-react';
 import { toast } from 'sonner';
 
@@ -204,7 +204,7 @@ export function EventCalendar({ events = [], onEventAdd, onEventUpdate, onEventD
       const start = startOfWeek(currentDate, { weekStartsOn: 0, locale: ptBR });
       const end = endOfWeek(currentDate, { weekStartsOn: 0, locale: ptBR });
       if (isSameMonth(start, end)) {
-        return format(start, 'MMMM yyyy');
+        return format(start, 'MMMM yyyy', { locale: ptBR });
       } else {
         return `${format(start, 'MMM', { locale: ptBR })} - ${format(end, 'MMM yyyy', { locale: ptBR })}`;
       }
