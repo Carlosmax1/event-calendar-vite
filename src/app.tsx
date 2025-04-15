@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { setHours, setMinutes, subDays } from 'date-fns';
+import { Toaster } from 'sonner';
 
 import { EventCalendar, type CalendarEvent } from '@/components/event-calendar';
 
@@ -35,6 +36,7 @@ export function App() {
       <main className="container mx-auto md:py-4 md:px-10 px-2">
         <EventCalendar events={events} onEventAdd={handleEventAdd} onEventUpdate={handleEventUpdate} onEventDelete={handleEventDelete} />
       </main>
+      <Toaster />
     </div>
   );
 }
