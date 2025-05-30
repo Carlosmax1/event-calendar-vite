@@ -9,6 +9,8 @@ services:
     volumes:
       - .:/app
       - /app/node_modules
+    networks:
+      - tunnel
 
   nginx:
     image: nginx:latest
@@ -20,3 +22,8 @@ services:
       - ./dist:/usr/share/nginx/html
     depends_on:
       - front
+    networks:
+      - tunnel
+
+networks:
+  tunnel:
