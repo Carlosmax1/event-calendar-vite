@@ -5,10 +5,8 @@ services:
     build:
       context: . # Usa o Dockerfile que está na raiz
     working_dir: /app
-    command: ['npm', 'run', 'build']
     volumes:
       - .:/app
-      - /app/node_modules
     networks:
       - tunnel
 
@@ -19,7 +17,7 @@ services:
       - '80:80'
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
-      - ./dist:/usr/share/nginx/html
+      - ./app:/usr/share/nginx/html
     depends_on:
       - front
     networks:
